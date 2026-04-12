@@ -36,6 +36,11 @@ Users download only the language packs they need. Each pack is ~300 MB and cover
 
 ---
 
+## Schema
+![Main schema](assets/images/main_schema.png)
+![Flow](assets/images/example_flow.png)
+![Manifest](assets/images/manifest.png)
+----
 ## Tech stack
 
 | Layer | Library |
