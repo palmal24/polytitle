@@ -4,7 +4,7 @@
 
 Pick any video, choose a source and target language, and PolyTitle transcribes the speech and translates it — entirely on-device, with no internet connection required after the initial model download. No subscriptions, no API keys, no ongoing cost.
 
-> Built with React Native (Expo → bare workflow), Whisper (speech-to-text), and Helsinki-NLP Opus-MT models (translation). One-time purchase at €5.99.
+> Built with React Native (Expo → bare workflow), Whisper (speech-to-text), and Helsinki-NLP Opus-MT models (translation).
 
 ---
 
@@ -40,7 +40,14 @@ Users download only the language packs they need. Each pack is ~300 MB and cover
 ![Main schema](assets/images/main_schema.png)
 ![Flow](assets/images/example_flow.png)
 ![Manifest](assets/images/manifest.png)
-----
+
+---
+
+## Core screen
+<img src="assets/images/polytitle_screen1.jpg" width="400" height="900" alt="Main screen"/>   
+
+---
+
 ## Tech stack
 
 | Layer | Library |
@@ -203,14 +210,10 @@ DocumentDirectory/
 - For iOS: Xcode 15+, CocoaPods
 - For Android: Android Studio, JDK 17
 
-### Create the project from scratch
+### Project setup
 
 ```bash
-# 1. Create Expo project with TypeScript template
-npx create-expo-app polytitle --template expo-template-blank-typescript
-cd polytitle
-
-# 2. Install all dependencies
+# 1. Install all dependencies
 npm install \
   whisper.rn \
   react-native-executorch \
@@ -224,45 +227,13 @@ npm install \
   expo-dev-client \
   zustand
 
-# 3. Install dev client for native module support
+# 2. Install dev client for native module support
 npx expo install expo-dev-client
 
-# 4. Run on device / simulator
+# 3. Run on device / simulator
 npx expo run:ios
 npx expo run:android
 ```
-
-### Create the full folder structure
-
-```bash
-mkdir -p screens services components store constants navigation && \
-touch screens/WelcomeScreen.tsx \
-      screens/ModelDownloadScreen.tsx \
-      screens/PackManagerScreen.tsx \
-      screens/HomeScreen.tsx \
-      screens/ProcessScreen.tsx \
-      screens/PlayerScreen.tsx \
-      services/whisperService.ts \
-      services/translationService.ts \
-      services/audioExtractor.ts \
-      services/subtitleBuilder.ts \
-      services/modelManager.ts \
-      services/packManager.ts \
-      services/fileExporter.ts \
-      services/purchaseManager.ts \
-      components/SubtitleOverlay.tsx \
-      components/PackCard.tsx \
-      components/ProgressCard.tsx \
-      components/LanguagePicker.tsx \
-      store/modelStore.ts \
-      store/packStore.ts \
-      store/settingsStore.ts \
-      constants/packs.ts \
-      constants/languages.ts \
-      constants/config.ts \
-      navigation/AppNavigator.tsx
-```
-
 ---
 
 ## Ejecting to bare workflow (for App Store / Play Store)
